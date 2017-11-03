@@ -27,9 +27,6 @@ function focusModeOn() {
     return;
   }
   addStyle(`
-    .html5-endscreen {
-      display: none !important;
-    }
     .html5-video-player {
       position: fixed;
       left: 0;
@@ -43,6 +40,20 @@ function focusModeOn() {
       width: 100% !important;
       height: 100% !important;
       left: 0px !important;
+    }
+    .html5-endscreen {
+      display: none !important;
+    }
+    /*
+    .ytp-chrome-bottom {
+      display: none !important;
+    }
+    */
+    .ytp-chrome-controls {
+      display: none !important;
+    }
+    .ytp-progress-bar-container {
+      bottom: 0px !important;
     }
     #masthead-positioner {
       z-index: 0 !important;

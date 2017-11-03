@@ -15,8 +15,10 @@ I'm sure there are others.
 ## Features
 
 Focus mode
-- Video takes up the full-screen.  You can't scroll, see recommendations, comments, etc.
+- Video takes up the full screen.  Nothing else.
+  You can't scroll, see recommendations, comments, etc.
 - No end-screen with recommendations to bait you into more videos!
+- No controls menu, just a tiny progress bar at the bottom.
 
 Keybindings:
 - Remaps `m` to toggling focus mode (on by default, of course!)
