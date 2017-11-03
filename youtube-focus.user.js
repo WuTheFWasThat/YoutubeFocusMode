@@ -21,6 +21,7 @@ var styleElemId = 'yt-custom-style';
 
 function focusModeOn() {
   var styleEl = document.getElementById(styleElemId);
+  getVideo().focus();
   console.log('focus mode on');
   if (styleEl) {
     console.log('hmm, already has styleel?')
