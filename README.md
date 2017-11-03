@@ -7,8 +7,8 @@ Userscript which makes Youtube videos display in a pseudo-fullscreen mode, which
 In focus mode, the video takes up the full screen.  There is almost nothing else.
 
 - You can't scroll, see recommendations, comments, etc.
-- When the video ends, you don't see recommendations to bait you into more videos.
-- No controls menu, just a tiny progress bar at the bottom.
+- No controls menu, just a tiny progress bar at the bottom
+- When the video ends, you don't see recommendations - just a beautiful black screen :)
 
 When you do want comments, etc., you can simply press `m` to toggle focus mode.
 
@@ -18,10 +18,12 @@ When you do want comments, etc., you can simply press `m` to toggle focus mode.
 - Remaps `enter` to toggle focus mode, and play/resume based on that (good if you want focus mode IFF the video is playing, like I do)
 - Remaps `h` to rewind (instead of `j`)
 - Remaps `space` and `p` to pause/resume
+- Remaps `[` and `]` to control volume
 - Remaps `,` and `.` to speed changes (normally it's `<` and `>`, so you save a keystroke!)
 
-This may seem arbitrary to you since it was designed for my worfklow.
-Luckily my script is simple enough that perhaps you can tweak it!
+These mappings may seem slightly arbitrary to you since it was designed for my worfklow.
+In particular, `h` is rewind to match `l` being fast-forward is based on vim bindings.
+So I tried to keep my script simple and hackable, so anyone with some basic Javascript knowledge should be able to tweak it.
 
 ## Install
 
@@ -36,25 +38,31 @@ Pull requests are much appreciated!
 
 ## Why?
 
-Firstly, I spend way more time than I'd like to admit on Youtube.
+I spend way more time than I'd like to admit on Youtube.
+I wanted something like youtube full-screen, but more lightweight, and which worked with my Vimium workflow.
 
-I made this for myself to solve a perhaps random set of problems, arising from my use of Vimium.
+Hopefully, it will
+- save me more time than I spent making it
+- be useful to others
 
-- I wanted something like youtube full-screen, but more lightweight, and with other vimium bindings unaffected (in actual full-screen, I can't use Vomnibar.activateTabSelection, for example).
-- Youtube uses `j` and `k` for rewinding and pause/resume.  This annoying since I'm used to these being scrolling.
+### Vimium workflow
 
-So here's my workflow:
+As a Vimium user, Youtube's normal full-screen is annoying (I can't use Vomnibar.activateTabSelection, for example).
+Furthermore, Youtube uses `j` and `k` for rewinding and pause/resume.
+This is annoying since Vimium by default uses these for scrolling.
 
-- I tell vimium to let the keys `hlmp><,.` pass through to the page
-- As a result, I end up with the more intuitive (to me) bindings:
-  - `,` and `.` change speed
+So here's my workflow, and that which I recommend to Vimium users:
+
+- Tell vimium to let the keys `hlmp><,.[]` pass through to the page
+- As a result,
   - `h` rewinds and `l` fast-forwards
-  - `enter` to toggle watching
   - `j` and `k` scroll (only useful outside of focus mode)
+  - all the other script-added shortcuts work too, of course
 
 ## Alternatives
 
 This is sort of similar to [Zren/ResizeYoutubePlayerToWindowSize](https://github.com/Zren/ResizeYoutubePlayerToWindowSize), but much fewer lines of code, and works better for me.
 Also, it removes the extra distractions entirely.
 
-I'm sure there are other alternatives.
+I'm sure there are other alternatives, maybe even ones *gasp* better than this.
+Feel free to make a PR adding them here.
