@@ -30,7 +30,8 @@ function focusModeOn() {
     .html5-video-player {
       position: fixed;
       left: 0;
-      bottom: 0px;
+      top: 50%;
+      transform: translate(0%, -50%);
     }
     .html5-video-container {
       width: 100% !important;
@@ -40,6 +41,7 @@ function focusModeOn() {
       width: 100% !important;
       height: 100% !important;
       left: 0px !important;
+      top: 0px !important;
     }
     .html5-endscreen {
       display: none !important;
