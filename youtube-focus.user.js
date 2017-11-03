@@ -80,9 +80,13 @@ function focusModeOff() {
   }
 }
 
-function toggleFocusMode() {
+function hasFocusMode() {
   var styleEl = document.getElementById(styleElemId);
-  if (styleEl) {
+  return !!styleEl;
+}
+
+function toggleFocusMode() {
+  if (hasFocusMode()) {
     focusModeOff();
   } else {
     focusModeOn();
@@ -106,11 +110,17 @@ document.addEventListener("keydown", function(e) {
   var keyCode = e.keyCode;
   console.log('keyCode', keyCode);
   if (keyCode === 13) { // enter
-    pauseOrResume();
-    if (isPlaying()) {
-      focusModeOn();
-    } else {
+    var vid = document.querySelector("video");
+    if (hasFocusMode()) {
+      if (!vid.paused && !vid.ended) {
+        vid.pause();
+      }
       focusModeOff();
+    } else {
+      if (vid.paused && !vid.ended) {
+        vid.play();
+      }
+      focusModeOn();
     }
   } else if (keyCode === 80) { // p
     pauseOrResume();
