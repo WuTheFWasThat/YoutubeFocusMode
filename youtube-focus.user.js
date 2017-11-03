@@ -17,21 +17,19 @@ function addStyle(style_str, id) {
   document.head.appendChild(el);
 }
 
-function isPlaying() {
-  var vid = document.querySelector("video");
-  return (!!(vid.currentTime > 0 && !vid.paused && !vid.ended && vid.readyState > 2));
-}
-
-const styleElemId = 'yt-custom-style';
+var styleElemId = 'yt-custom-style';
 
 function focusModeOn() {
-  const styleEl = document.getElementById(styleElemId);
+  var styleEl = document.getElementById(styleElemId);
   console.log('focus mode on');
   if (styleEl) {
     console.log('hmm, already has styleel?')
     return;
   }
   addStyle(`
+    .html5-endscreen {
+      display: none !important;
+    }
     .html5-video-player {
       position: fixed;
       left: 0;
@@ -62,7 +60,7 @@ function focusModeOn() {
 }
 
 function focusModeOff() {
-  const styleEl = document.getElementById(styleElemId);
+  var styleEl = document.getElementById(styleElemId);
   console.log('focus mode off');
   if (styleEl) {
     styleEl.parentNode.removeChild(styleEl);
@@ -70,7 +68,7 @@ function focusModeOff() {
 }
 
 function toggleFocusMode() {
-  const styleEl = document.getElementById(styleElemId);
+  var styleEl = document.getElementById(styleElemId);
   if (styleEl) {
     focusModeOff();
   } else {
@@ -81,6 +79,11 @@ function toggleFocusMode() {
 // toggle once by default
 focusModeOn();
 
+function isPlaying() {
+  var vid = document.querySelector("video");
+  return !!(vid.currentTime > 0 && !vid.paused && !vid.ended && vid.readyState > 2);
+}
+
 function pauseOrResume() {
   var vid = document.querySelector("video");
   vid.paused ? vid.play() : vid.pause();
@@ -90,12 +93,12 @@ document.addEventListener("keydown", function(e) {
   var keyCode = e.keyCode;
   console.log('keyCode', keyCode);
   if (keyCode === 13) { // enter
-    if (!isPlaying()) {
+    pauseOrResume();
+    if (isPlaying()) {
       focusModeOn();
     } else {
       focusModeOff();
     }
-    pauseOrResume();
   } else if (keyCode === 80) { // p
     pauseOrResume();
   } else if (keyCode === 0 || keyCode === 32) { // space

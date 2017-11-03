@@ -14,6 +14,11 @@ I'm sure there are others.
 
 ## Features
 
+Focus mode
+- Video takes up the full-screen.  You can't scroll, see recommendations, comments, etc.
+- No end-screen with recommendations to bait you into more videos!
+
+Keybindings:
 - Remaps `m` to toggling focus mode (on by default, of course!)
 - Remaps `enter` to pause/resume, plus toggle focus mode based on that (good if you want focus mode IFF the video is playing, like I do)
 - Remaps `h` to rewind (instead of `j`)
