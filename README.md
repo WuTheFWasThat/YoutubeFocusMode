@@ -19,7 +19,7 @@ In addition to the excellent [built in shortcuts](https://sites.google.com/a/umi
 - `enter` to toggle focus mode, and play/resume based on that (while the video hasn't ended)
 - `p` to pause/resume (normally `space` or `k`)
 - `[` and `]` to control volume
-- `,` and `.` for speed changes (normally it's `<` and `>`, I don't like pressing shift!)
+- `,` and `.` for speed changes (more control than the default `<` and `>`, plus you don't have to press shift!)
 - `h` to rewind (normally `j`, with `l` as fast-forward)
 
 These mappings may seem slightly arbitrary to you since it was designed for my worfklow.

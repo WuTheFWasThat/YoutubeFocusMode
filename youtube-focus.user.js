@@ -78,6 +78,8 @@ function focusModeOff() {
   console.log('focus mode off');
   if (styleEl) {
     styleEl.parentNode.removeChild(styleEl);
+    // b/c of browser layout bugs
+    window.dispatchEvent(new Event('resize'));
   }
 }
 
@@ -106,6 +108,8 @@ function pauseOrResume() {
   vid.paused ? vid.play() : vid.pause();
 }
 
+var speedPow = 0;
+
 document.addEventListener("keydown", function(e) {
   var keyCode = e.keyCode;
   console.log('keyCode', keyCode);
@@ -131,11 +135,11 @@ document.addEventListener("keydown", function(e) {
   } else if (keyCode === 59) { // ;
     toggleFocusMode();
   } else if (keyCode === 188) { // ,
-    if (e.shiftKey) { return; }
-    sendKey(keyCode, true); // send a <
+    speedPow = Math.max(speedPow - 1, -25);
+    getVideo().playbackRate = Math.pow(1.25, speedPow);
   } else if (keyCode === 190) { // .
-    if (e.shiftKey) { return; }
-    sendKey(keyCode, true); // send a >
+    speedPow = Math.min(speedPow + 1, 25);
+    getVideo().playbackRate = Math.pow(1.25, speedPow);
   } else if (keyCode === 219) { // [
     var vid = getVideo();
     vid.volume = vid.volume - 0.05;
