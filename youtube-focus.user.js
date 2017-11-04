@@ -109,8 +109,15 @@ function pauseOrResume() {
 }
 
 var speedPow = 0;
-
-document.addEventListener("keydown", function(e) {
+function handleKeydown(e) {
+  if (
+    document.activeElement.type === 'textarea' ||
+    document.activeElement.type === 'text'
+  ) {
+    // not sure why browser doesn't take care of this for me, but we don't want to
+    // interfere with typing comments or search
+    return;
+  }
   var keyCode = e.keyCode;
   console.log('keyCode', keyCode);
   if (keyCode === 13) { // enter
@@ -147,7 +154,8 @@ document.addEventListener("keydown", function(e) {
     var vid = getVideo();
     vid.volume = vid.volume + 0.05;
   }
-}, false);
+}
+document.addEventListener("keydown", handleKeydown, false);
 
 function sendKey(keyCode, shift) {
   var keyboardEvent = document.createEvent("KeyboardEvent");
