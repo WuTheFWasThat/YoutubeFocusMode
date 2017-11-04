@@ -134,10 +134,13 @@ function handleKeydown(e) {
   if (keyCode === 13) { // enter
     var vid = getVideo();
     if (hasFocusMode()) {
-      if (!vid.paused && !vid.ended) {
-        console.log('pausing');
-        vid.pause();
-      }
+      // not sure why needed sometimes for very first load
+      setTimeout(function() {
+        if (!vid.paused && !vid.ended) {
+          console.log('pausing');
+          vid.pause();
+        }
+      }, 10);
       focusModeOff();
     } else {
       if (vid.paused && !vid.ended) {
