@@ -15,7 +15,7 @@ In focus mode, the video takes up the full screen.  There is almost nothing else
 ### Keybindings
 
 In addition to the excellent [built in shortcuts](https://sites.google.com/a/umich.edu/going-google/accessibility/google-keyboard-shortcuts---youtube), this script provides:
-- `m` to toggle focus mode (on by default, of course!).  I recommend `space` or `enter` instead, almost always.
+- `;` to toggle focus mode (on by default, of course!).  I recommend `space` or `enter` instead, almost always.
 - `enter` to toggle focus mode, and play/resume based on that (while the video hasn't ended)
 - `p` to pause/resume (normally `space` or `k`)
 - `[` and `]` to control volume

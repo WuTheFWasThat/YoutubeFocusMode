@@ -124,11 +124,11 @@ document.addEventListener("keydown", function(e) {
     }
   } else if (keyCode === 80) { // p
     pauseOrResume();
-  } else if (keyCode === 0 || keyCode === 32) { // space
-    pauseOrResume();
+  // } else if (keyCode === 0 || keyCode === 32) { // space
+  // } pauseOrResume();
   } else if (keyCode === 72) { // h
     sendKey(74); // send a j
-  } else if (keyCode === 77) { // m
+  } else if (keyCode === 59) { // ;
     toggleFocusMode();
   } else if (keyCode === 188) { // ,
     if (e.shiftKey) { return; }
