@@ -63,3 +63,7 @@ Also, it removes the extra distractions entirely.
 
 I'm sure there are other alternatives, maybe even ones better than this (*gasp*).
 Feel free to make a PR adding them here.
+
+## License
+
+MIT

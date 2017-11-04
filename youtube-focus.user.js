@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         Youtube-focus
+// @name         Youtube-focus-mode
 // @namespace    wuthefwasthat
 // @version      0.1
-// @description  Youtube focus
+// @description  Youtube focus mode
 // @match        *://www.youtube.com/watch*
 // @copyright    2017+, You
 // @grant        none
@@ -135,15 +135,18 @@ function handleKeydown(e) {
     var vid = getVideo();
     if (hasFocusMode()) {
       if (!vid.paused && !vid.ended) {
+        console.log('pausing');
         vid.pause();
       }
       focusModeOff();
     } else {
       if (vid.paused && !vid.ended) {
+        console.log('playing');
         vid.play();
       }
       focusModeOn();
     }
+    return cancelEv(e);
   } else if (keyCode === 80) { // p
     pauseOrResume();
   // } else if (keyCode === 0 || keyCode === 32) { // space
