@@ -50,7 +50,7 @@ Furthermore, Youtube uses `j` and `k` for rewinding and pause/resume, which are 
 
 So here's my workflow, and that which I recommend to Vimium users:
 
-- Tell vimium to let the keys `hlmp><,.[]` pass through to the page
+- Tell vimium to let the keys `hlmp><,.[];/` pass through to the page
 - As a result,
   - `h` rewinds and `l` fast-forwards
   - `j` and `k` scroll (only useful outside of focus mode)

@@ -24,10 +24,15 @@ function focusModeOn() {
   getVideo().focus();
   console.log('focus mode on');
   if (styleEl) {
-    console.log('hmm, already has styleel?')
+    console.log('focus mode already on?');
     return;
   }
   addStyle(`
+    /* TODO: Ideally figure out how to get this to work in focus mode
+    .search-input:focus {
+      z-index: 200 !important;
+    }
+    */
     .html5-video-player {
       position: fixed;
       left: 0;
@@ -108,6 +113,12 @@ function pauseOrResume() {
   vid.paused ? vid.play() : vid.pause();
 }
 
+function cancelEv(e) {
+  e.preventDefault();
+  e.stopPropagation();
+  return false;
+}
+
 var speedPow = 0;
 function handleKeydown(e) {
   if (
@@ -147,6 +158,13 @@ function handleKeydown(e) {
   } else if (keyCode === 190) { // .
     speedPow = Math.min(speedPow + 1, 25);
     getVideo().playbackRate = Math.pow(1.25, speedPow);
+  } else if (keyCode === 191) { // /
+    // TODO: ideally make this work in focus mode
+    if (hasFocusMode()) {
+      focusModeOff();
+    }
+    // wtf, there are two things with id search
+    document.querySelector('input#search').focus();
   } else if (keyCode === 219) { // [
     var vid = getVideo();
     vid.volume = vid.volume - 0.05;
